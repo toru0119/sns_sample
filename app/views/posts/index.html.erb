@@ -4,10 +4,8 @@
     <p>投稿ユーザー画像：<%= image_tag('no_image.jpg') %></p>
   <% end %>
   <p>ユーザーネーム：<%= post.user.name %></p>
-
-<!--  「image_id」は、refileで利用するカラムです。-->
-<!--このため、通常のIDとは異なり、画像のURLを指定します。このため、カラムのデータ型はstringを設定します。-->
   <%= attachment_image_tag post, :image %>
   <p>説明：<%= post.body %></p>
+  <p><%= link_to "#{post.comments.count}コメント", post_path(post.id) %></p>
 </div>
 <% end %>
