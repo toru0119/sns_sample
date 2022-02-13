@@ -6,8 +6,20 @@
   <% if @post.user == current_user %>
     <%= link_to "削除", post_path(@post), method: :delete %>
   <% end %>
+  <% if @post.liked_by?(current_user) %>
+    <p>
+      <%= link_to post_likes_path(@post), method: :delete do %>
+        ♥<%= @post.likes.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_likes_path(@post), method: :post do %>
+        ♡<%= @post.likes.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
 </div>
-
 <div>
   <p>コメント数:<%= @post.comments.count %></p>
   <%= @post.comments.each do |comment| %>
@@ -20,7 +32,6 @@
     <% end %>
   <% end %>
 </div>
-
 <div>
   <%= form_with(model:[@post,@comment],local:true) do |f| %>
     <%= f.text_area :comment,row:'5', placeholder: "コメントをここに" %>
