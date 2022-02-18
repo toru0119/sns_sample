@@ -24,6 +24,10 @@
         <li>
           <%= link_to "一覧", posts_path %>
         </li>
+        <%= form_with url: member_search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword %>
+          <%= f.submit '検索' %>
+        <% end %>
       <% else %>
         <li>
           <%= link_to "新規登録", new_user_registration_path %>
