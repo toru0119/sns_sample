@@ -24,7 +24,7 @@
         <li>
           <%= link_to "一覧", posts_path %>
         </li>
-        <%= form_with url: member_search_path, method: :get, local: true do |f| %>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
           <%= f.text_field :keyword %>
           <%= f.submit '検索' %>
         <% end %>

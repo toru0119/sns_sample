@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+  <%= attachment_image_tag user, :image, size: "32x32", format: 'jpeg', fallback: "no_image.jpg" %>
+  <%= customer.name %>
+<% end %>
