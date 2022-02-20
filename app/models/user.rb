@@ -33,4 +33,5 @@ class User < ApplicationRecord
       User.where('name LIKE(?)', "%#{search}%")
     end
   end
+  
 end
